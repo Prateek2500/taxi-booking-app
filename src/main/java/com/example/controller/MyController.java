@@ -35,6 +35,13 @@ public class MyController {
 		m.addAttribute("bookingForm",new BookingForm());
 		return "index";
 	}
+	@GetMapping("/")
+	public String home(Model model, HttpServletRequest req) {
+	    String requestURI = req.getRequestURI();
+	    model.addAttribute("mycurrentpage", requestURI);
+	    model.addAttribute("bookingForm", new BookingForm());
+	    return "index";
+	}
 
 	@GetMapping("about")
 	public String aboutView(HttpServletRequest req, Model m) {
